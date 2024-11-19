@@ -5,6 +5,8 @@ import Icon from "../../assets";
 import dayjs from 'dayjs';
 import DatePicker from 'react-native-date-picker';
 import { useNavigation } from "@react-navigation/native";
+import { Dropdown } from "../../component/modalExpense";
+import { DropdownTravel } from "../../component/modalSalary";
 
 
 const AddTransaction = () => {
@@ -50,22 +52,24 @@ const AddTransaction = () => {
                 <View style={styles.switchView}>
                     <TouchableOpacity style={[
                         styles.switch1,
-                        { backgroundColor: selectedTap === 1 ? "white" : "##641FC9" }
+                        { backgroundColor: selectedTap === 0 ? "white" : "#641FC9" }
                     ]} onPress={() => setSelectedTap(0)}>
-                        <Text style={[styles.incomeText, { color: selectedTap === 1 ? "#641FC9" : "#dbdad7" }]}>Income</Text>
+                        <Text style={[styles.incomeText, { color: selectedTap === 0 ? "#641FC9" : "#dbdad7" }]}>Income</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={[
                         styles.switch2,
-                        { backgroundColor: selectedTap === 0 ? "white" : "##641FC9" }
+                        { backgroundColor: selectedTap === 1 ? "white" : "#641FC9" }
                     ]} onPress={() => setSelectedTap(1)}>
-                        <Text style={[styles.incomeText, { color: selectedTap === 1 ? "#dbdad7" : "#641FC9" }]}>Expense</Text>
+                        <Text style={[styles.incomeText, { color: selectedTap === 0 ? "#dbdad7" : "#641FC9" }]}>Expense</Text>
                     </TouchableOpacity>
                 </View>
 
                 <TouchableOpacity style={styles.Date} >
-
+                <Dropdown/>
+                {/* <DropdownTravel/> */}
                 </TouchableOpacity>
+               
 
                 <TouchableOpacity style={styles.Date} >
                     <Text style={styles.legend}>Note</Text>
@@ -75,6 +79,7 @@ const AddTransaction = () => {
                 <TouchableOpacity style={styles.addAmount}>
                     <Text style={styles.addButton}>Add Transaction</Text>
                 </TouchableOpacity>
+
 
 
             </View>
