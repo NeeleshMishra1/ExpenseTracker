@@ -3,10 +3,10 @@ import { Text } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 
 export const Dropdown = () => {
-    const [selectedTap, setSelectedTap] = useState(0);
+    const [selectedTap, setSelectedTap] = useState("Salary");
   return (
     <RNPickerSelect
-      onValueChange={(value) => console.log(value)}
+      onValueChange={(value) => setSelectedTap(value)}
       items={[
         { label: 'salary', value: 'salary' },
         { label: 'Investment', value: 'Investment' },
@@ -17,7 +17,7 @@ export const Dropdown = () => {
       ]}
       useNativeAndroidPickerStyle
     >
-        <Text></Text>
+        <Text>{selectedTap}</Text>
     </RNPickerSelect>
   );
 };
